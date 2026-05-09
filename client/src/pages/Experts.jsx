@@ -80,6 +80,26 @@ function Experts() {
                         UI/UX
                     </option>
 
+                    <option value="Data Science">
+                        Data Science
+                    </option>
+
+                    <option value="Cyber Security">
+                        Cyber Security
+                    </option>
+
+                    <option value="Cloud Computing">
+                        Cloud Computing
+                    </option>
+
+                    <option value="DevOps">
+                        DevOps
+                    </option>
+
+                    <option value="AI/ML">
+                        AI/ML
+                    </option>
+
                 </select>
 
             </div>
