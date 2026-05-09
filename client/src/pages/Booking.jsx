@@ -20,6 +20,7 @@ function Booking() {
     });
 
     const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState("");
 
     const handleChange = (e) => {
         setFormData({
@@ -36,7 +37,9 @@ function Booking() {
                 !formData.email ||
                 !formData.phone
             ) {
-                return setMessage("All fields required");
+                setMessage("All fields required!");
+                setMessageType("error");
+                return;
             }
 
             await api.post("/bookings", {
@@ -46,12 +49,14 @@ function Booking() {
                 ...formData
             });
 
-            setMessage("Booking successful");
+            setMessage("Booking successful!");
+            setMessageType("success");
 
         } catch (error) {
             setMessage(
                 error.response?.data?.message
             );
+            setMessageType("error");
         }
     };
 
@@ -114,7 +119,13 @@ function Booking() {
 
                 {
                     message && (
-                        <p className="booking-message">
+                        <p
+                            className={
+                                messageType === "success"
+                                    ? "booking-message success-message"
+                                    : "booking-message error-message"
+                            }
+                        >
                             {message}
                         </p>
                     )
